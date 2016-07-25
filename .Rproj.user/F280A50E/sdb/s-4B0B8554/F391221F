@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "require(dplyr)\nrequire(data.table)\n\n# check pir files in test data\nrows = lapply(11:882, function(i){\n  pir <- read.csv(paste0('data/raw_data/public_data/test/',sprintf('%05d',i),'/pir.csv'))\n  return(nrow(pir))\n})\n\n# pir data is almost inexistent for test data\n\n# find test sequence lengths\nsub = read.csv('data/raw_data/public_data/submission_uniform_baseline.csv') %>% data.table\nsub[,by='record_id', max(end)]$V1 # 5-29 sec\n\n# test has approx 11 people recordings of approx. 1500 sec each \n# divided on average into sequences of length 20 sec.\n\n\n# hall, stairs can be predicted by transitions\n# stairs = ascend, descend, \n# hall = walk, loadwalk, ...\n# some pir sensors ex hall, study are not reliable\n\n\n\n\n# load\n\naccel <- read.csv('data/raw_data/public_data/train/00001/acceleration.csv')\ntarget <- read.csv('data/raw_data/public_data/train/00001/targets.csv')\npir <- read.csv('data/raw_data/public_data/train/00001/pir.csv')\nvideo_hallway <- read.csv('data/raw_data/public_data/train/00001/video_hallway.csv')\nvideo_kitchen <- read.csv('data/raw_data/public_data/train/00001/video_kitchen.csv')\nvideo_living_room <- read.csv('data/raw_data/public_data/train/00001/video_living_room.csv')\nloc0 = read.csv('data/raw_data/public_data/train/00001/location_0.csv')\n\n# PIR (passive infrared) sensors are located in all 0-8 (9 rooms).\n# Sensors may have false negative and false positive acitvations.\n# We produce best possible predictions of location in every 1 sec. window just based on PIR data.\n# A person spends most of time in living, kitchen, bed2\n# Minor times are spent on stairs, hall, study\n\n\n# find location in 1s windows\nrooms = lapply(target$end, function(e){\n  pir[-which((pir$end <= e-1) | (pir$start > e)),'index'] %>% unique\n})\n",
+    "created" : 1469450138082.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "278757846",
+    "id" : "F391221F",
+    "lastKnownWriteTime" : 1469452820,
+    "last_content_update" : 1469452820806,
+    "path" : "~/SPHERE-Challenge/code/preprocess/PIR_feats.R",
+    "project_path" : "code/preprocess/PIR_feats.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "end = which(target$a_ascend > 0)\nfor (e in end){\n  tmp = accel[which(accel$t < e & accel$t >= e-2),]\n  plot(x = tmp$t, y = tmp$x, type='l')\n}\n",
+    "created" : 1469188698071.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "4098673021",
+    "id" : "FAC9ECA3",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1469188982767,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

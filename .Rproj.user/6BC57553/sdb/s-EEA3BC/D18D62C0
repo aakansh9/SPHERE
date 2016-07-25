@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1468919874610.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D18D62C0",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1468919874610,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "2m7x2mz70v",
+        "caption" : "feats",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=feats&cache_key=2m7x2mz70v",
+        "displayedObservations" : 16124,
+        "environment" : "",
+        "object" : "feats",
+        "totalObservations" : 16124,
+        "variables" : 63
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
